@@ -1,10 +1,3 @@
-## DWD Info
-
-10 Min Wind daten
-
-https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/
-
-
 # Einleitung
 
 Die Wetterdaten der Wetterstation liegen als Dateien auf einem Share des DWD vor.
@@ -20,8 +13,25 @@ Diese Daten sollen in einer Relationale Datenbank gespeichert werden und normali
 Um das Projekt zu installieren, muss zunächst das Repository geklont werden.
 
 ```bash
-git clone
+git clone https://github.com/mhabedank/dwd-weather-data-ingestion.git
 ```
+
+Anschließend sollte Peotry, so es nicht schon vorhanden ist, installiert werden.
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+Nun kann das Projekt installiert werden.
+
+```bash
+poetry install
+```
+
+Um die Skripte auszuführen, müssen Umgebungsvariablen gesetzt werden.
+Dazu kann die Datei `.env.example` kopiert und angepasst werden.
+
+Die Umgebungsvariable PROJECT_DIR ist der absolute Pfad zu dem Project Ordner (der Ordnern, in dem sich die Datei `pyproject.toml` befindet).
 
 ## Datenmodell
 
@@ -55,3 +65,12 @@ zu kapsel. Dabei gibt es zwei verschiedene Module. Im Modul
 Im Modul `src.file_wrapper.weather_data` werden sind die Klassen für die Wetterdaten, in diesem Fall
 der Windgeschwindigkeit hinterlegt.
 
+## Geodaten
+
+Es werden Geodaten, die die Staatsgrenzen der Bundesländer abbilden, verwendet. Diese werden aus einem Gitrepository geladen
+und später zum Filtern verwendet.
+
+# Durchführen des ETL Prozesses
+
+Um den ETL Prozess durchzuführen, müssen lediglich die Notebooks im Ordner `notebooks` ausgeführt in der
+Reihenfolge ausgeführt werden, in der sie nummeriert sind. Weitere Details stehen in diesen Dateien.
