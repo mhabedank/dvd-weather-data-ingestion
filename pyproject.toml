@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "19-dateninfrastruktur"
+name = "dwd-weather-data-ingestion"
 version = "0.1.0"
-description = ""
-authors = ["m.habedank <m.habedank@cartelsol.com>"]
+description = "Ingestion of weather data from DWD"
+authors = ["m.habedank"]
 readme = "README.md"
-packages = [{include = "19_dateninfrastruktur"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12,"
